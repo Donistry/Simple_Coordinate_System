@@ -8,6 +8,8 @@ export interface Point {
   color: string;
   size: number;
   label: string;
+  labelColor: string;
+  labelSize: number;
   visible: boolean;
 }
 
@@ -21,6 +23,8 @@ export interface Vector {
   thickness: number;
   arrowSize: number;
   label: string;
+  labelColor: string;
+  labelSize: number;
   labelPosition: number; // 0 (start) to 1 (end)
   visible: boolean;
 }

@@ -8,12 +8,12 @@ import { Download, Target, Move } from 'lucide-react';
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('zh');
   const [points, setPoints] = useState<Point[]>([
-    { id: '1', x: 2, y: 3, color: '#3b82f6', size: 6, label: 'A', visible: true },
-    { id: '2', x: -4, y: 1, color: '#ef4444', size: 6, label: 'B', visible: true }
+    { id: '1', x: 2, y: 3, color: '#3b82f6', size: 6, label: 'A', labelColor: '#94a3b8', labelSize: 12, visible: true },
+    { id: '2', x: -4, y: 1, color: '#ef4444', size: 6, label: 'B', labelColor: '#94a3b8', labelSize: 12, visible: true }
   ]);
   
   const [vectors, setVectors] = useState<Vector[]>([
-    { id: 'v1', startX: 0, startY: 0, length: 5, angle: 45, color: '#10b981', thickness: 2, arrowSize: 12, label: 'v', labelPosition: 0.5, visible: true }
+    { id: 'v1', startX: 0, startY: 0, length: 5, angle: 45, color: '#10b981', thickness: 2, arrowSize: 12, label: 'v', labelColor: '#10b981', labelSize: 14, labelPosition: 0.5, visible: true }
   ]);
 
   const [gridConfig, setGridConfig] = useState<GridConfig>({
@@ -39,6 +39,8 @@ const App: React.FC = () => {
       color: p?.color ?? '#ffffff',
       size: p?.size ?? 6,
       label: p?.label ?? `P${points.length + 1}`,
+      labelColor: p?.labelColor ?? '#94a3b8',
+      labelSize: p?.labelSize ?? 12,
       visible: true,
       ...p
     };
@@ -56,6 +58,8 @@ const App: React.FC = () => {
       thickness: v?.thickness ?? 2,
       arrowSize: v?.arrowSize ?? 10,
       label: v?.label ?? `u${vectors.length + 1}`,
+      labelColor: v?.labelColor ?? (v?.color ?? '#f59e0b'),
+      labelSize: v?.labelSize ?? 12,
       labelPosition: 0.5,
       visible: true,
       ...v

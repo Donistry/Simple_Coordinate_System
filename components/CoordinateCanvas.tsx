@@ -193,10 +193,9 @@ const CoordinateCanvas = forwardRef<HTMLCanvasElement, Props>(({ points, vectors
         ctx.restore();
 
         if (v.label) {
-          ctx.fillStyle = v.color;
-          ctx.font = 'bold 12px sans-serif';
+          ctx.fillStyle = v.labelColor;
+          ctx.font = `bold ${v.labelSize}px sans-serif`;
           ctx.textAlign = 'center';
-          // Calculate label position based on labelPosition property
           const pos = v.labelPosition ?? 0.5;
           const lx = x1 + (x2 - x1) * pos;
           const ly = y1 + (y2 - y1) * pos;
@@ -214,8 +213,8 @@ const CoordinateCanvas = forwardRef<HTMLCanvasElement, Props>(({ points, vectors
         ctx.arc(x, y, p.size, 0, Math.PI * 2);
         ctx.fill();
         if (p.label) {
-          ctx.fillStyle = textColor;
-          ctx.font = '12px sans-serif';
+          ctx.fillStyle = p.labelColor;
+          ctx.font = `${p.labelSize}px sans-serif`;
           ctx.textAlign = 'left';
           ctx.fillText(p.label, x + p.size + 4, y - p.size - 4);
         }
